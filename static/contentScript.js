@@ -9,35 +9,57 @@ const test = () => {
     testHotReload()
 }
 
-
-const isTargetElement = (element, callback) => {
-    let footerSelector = '.f13'
-    let resultFooter = element.querySelector(footerSelector)
-    // 视频网站
-    if (!resultFooter) {
-        return
-    }
-
-    let identifyClass = '.nor-src-wrap'
-    let targetElement = resultFooter.querySelector(identifyClass)
-
-    // 普通网站不做处理
-    if (!targetElement) {
-        return
-    }
-
-    let flag = false
+const removeUrl = (rowAnchor, callback) => {
     let p = getBlockList()
+    let flag = false
+    p.then((list) => {
+        list.forEach((value, index, array) => {
+            let type = value.type
+            if (type === 'url') {
+                let text = rowAnchor.innerText
+                flag = text.includes(value.mark)
+                callback(flag)
+            }
+        })
+    })
+}
+
+const removeSiteName = (rowFooter, callback) => {
+    let p = getBlockList()
+    let flag = false
     p.then((list) => {
         list.forEach((value, index, array) => {
             let type = value.type
             if (type === 'name') {
+                let identifyClass = '.nor-src-wrap'
+                let targetElement = rowFooter.querySelector(identifyClass)
                 let text = targetElement.innerText
                 flag = text.includes(value.mark)
                 callback(flag)
             }
         })
     })
+}
+
+const isTargetElement = (element, callback) => {
+    let footerSelector = '.f13'
+    let resultFooter = element.querySelectorAll(footerSelector)
+    // 论坛网站有两个 .f13 类。
+    let lastChildFooter = resultFooter[resultFooter.length - 1]
+    // 视频网站，论坛回复
+    if (resultFooter.length === 0) {
+        return
+    }
+
+    // 处理链接
+    let identifyClass = '.c-showurl'
+    let targetElement = lastChildFooter.querySelector(identifyClass)
+    let isUrl = targetElement.children.length === 0
+    if (isUrl) {
+        removeUrl(targetElement, callback)
+    } else {
+        removeSiteName(lastChildFooter, callback)
+    }
 }
 
 const operateResult = (ele) => {
