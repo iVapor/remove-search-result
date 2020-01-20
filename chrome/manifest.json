@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
-    "name": "Block Search Result",
-    "short_name": "Block Search Result",
+    "name": "Remove Search Result",
+    "short_name": "Remove Search Result",
     "version": "1.0.0",
     "description": "It's chrome extension which can block baidu's search result of some site",
     "icons": {
@@ -10,7 +10,7 @@
         "128": "icons/icon.png"
     },
     "browser_action": {
-        "default_title": "Chrome Extension Boilerplate",
+        "default_title": "Remove Search Result",
         "default_popup": "index.html"
     },
     "content_scripts": [

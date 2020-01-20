@@ -113,7 +113,7 @@ class BlockSite extends Component {
                         message: '请输入网站名！',
                     },
                 ],
-            })(<Input style={inputWidth200} placeholder={"请输入要屏蔽的网站名"} />)}
+            })(<Input style={inputWidth200} placeholder={"请输入要移除的网站名"} />)}
         </Form.Item>)
 
         let siteUrlElement = (<Form.Item label="网址：">
@@ -125,7 +125,7 @@ class BlockSite extends Component {
                     },
                 ],
             })(<Input addonBefore={'www'} addonAfter={selectAfter}
-                      style={inputWidth400} placeholder={"请输入要屏蔽的网址"} />)}
+                      style={inputWidth400} placeholder={"请输入要移除的网址"} />)}
         </Form.Item>)
 
         let blockTypeList = {
@@ -149,17 +149,17 @@ class BlockSite extends Component {
         };
 
         let blockTypeElement = this.showBlockElement()
-        let tips = '提交成功后，需要关闭弹窗，刷新当前网页。屏蔽才会生效。'
+        let tips = '提交成功后，需要关闭弹窗，刷新当前网页。移除才会生效。'
         return <div className="block-site">
-            <h2>屏蔽百度</h2>
+            <h2>移除百度</h2>
             <section>
                 <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-                    <Form.Item label="屏蔽方式：">
+                    <Form.Item label="移除方式：">
                         {getFieldDecorator('blockMethod',  {
                             rules: [
                                 {
                                     required: true,
-                                    message: '请选择屏蔽方式！',
+                                    message: '请选择移除方式！',
                                 },
                             ],
                         })(
@@ -184,9 +184,9 @@ class BlockSite extends Component {
             <h2>说明</h2>
             <article className={"description"}>
                 <p>每次更新后，需要关闭弹窗，刷新页面</p>
-                <p>网站名不宜过长，注意截取关键字。例如我想屏蔽 『CSDN技术社区』，那么在网站名的位置，应该填
+                <p>网站名不宜过长，注意截取关键字。例如我想移除 『CSDN技术社区』，那么在网站名的位置，应该填
                     CSDN技术社区，而不是填写官网名称 『CSDN-专业IT技术社区』。</p>
-                <p>网址的填写网站主页的 hostname，例如我想屏蔽关于知乎的搜索结果，网址就填 zhihu，不应该填写
+                <p>网址的填写网站主页的 hostname，例如我想移除关于知乎的搜索结果，网址就填 zhihu，不应该填写
                     https://www.zhihu.com/question/366538777 之类。</p>
             </article>
         </div>

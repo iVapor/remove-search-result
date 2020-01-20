@@ -107,13 +107,13 @@ class BlockList extends Component {
     render() {
         const columns = [
             {
-                title: '屏蔽的站点',
+                title: '移除的站点',
                 dataIndex: 'mark',
                 key: 'mark',
                 render: text => <a>{text}</a>,
             },
             {
-                title: '屏蔽方式',
+                title: '移除方式',
                 width: 100,
                 dataIndex: 'type',
                 key: 'type',
@@ -150,10 +150,10 @@ class BlockList extends Component {
         let { list, modifyRecord } = this.state
         let modalText = modifyRecord.type === 'url' ? '链接：' : '网站名：'
         return <div className={"block-list"}>
-            <h2>屏蔽列表</h2>
+            <h2>移除列表</h2>
             <Table dataSource={list} columns={columns}  pagination={false}/>
             <Modal
-                title="编辑屏蔽的站点"
+                title="编辑移除的站点"
                 visible={this.state.modifyModalVisible}
                 onOk={this.modifyRecord}
                 onCancel={this.handleCancel}
