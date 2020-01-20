@@ -1,0 +1,11 @@
+.block-site {
+    position: relative;
+}
+
+.block-site h2 {
+    border-bottom: 1px solid #ebedf0;
+}
+
+.description {
+    margin-top: 20px;
+}

@@ -1,0 +1,14 @@
+@import '~antd/dist/antd.css';
+
+.block-result {
+    position: relative;
+    overflow: auto;
+}
+
+.main-container {
+    position: relative;
+    box-sizing: border-box;
+    width: 780px;
+    margin-top: 10px;
+    padding: 10px;
+}

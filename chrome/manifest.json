@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2,
+    "name": "Block Search Result",
+    "short_name": "Block Search Result",
+    "version": "1.0.0",
+    "description": "It's chrome extension which can block baidu's search result of some site",
+    "icons": {
+        "16": "icons/icon.png",
+        "48": "icons/icon.png",
+        "128": "icons/icon.png"
+    },
+    "browser_action": {
+        "default_title": "Chrome Extension Boilerplate",
+        "default_popup": "index.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://www.baidu.com/*"],
+            "js": ["contentScript.js"]
+        }
+    ],
+    "permissions": [
+        "storage"
+    ],
+    "background": { "scripts": ["hotReload.js"] }
+}

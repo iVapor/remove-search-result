@@ -1,0 +1,13 @@
+.block-list {
+    position: relative;
+
+}
+
+.block-list h2 {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ebedf0;
+}
+
+.modify-label {
+    margin-right: 10px;
+}
