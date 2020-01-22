@@ -124,7 +124,7 @@ class BlockList extends Component {
                 title: '移除的站点',
                 dataIndex: 'mark',
                 key: 'mark',
-                render: text => <a>{text}</a>,
+                render: text => <span>{text}</span>,
             },
             {
                 title: '状态',

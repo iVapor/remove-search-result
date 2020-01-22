@@ -63,7 +63,7 @@ class BlockSite extends Component {
     saveBlock(data) {
         let { blockMethod, siteName, siteUrl } = data
         let { siteSuffix } = this.state
-        let completeUrl = `www.${ siteUrl }${ siteSuffix }`
+        let completeUrl = `${ siteUrl }${ siteSuffix }`
         let saveMethod = {
             siteName: this.saveSiteName,
             siteUrl: this.saveSiteUrl,
@@ -138,7 +138,7 @@ class BlockSite extends Component {
                         message: '请输入网址！',
                     },
                 ],
-            })(<Input addonBefore={'www'} addonAfter={selectAfter}
+            })(<Input addonAfter={selectAfter}
                       style={inputWidth400} placeholder={"请输入要移除的网址"} />)}
         </Form.Item>)
 
