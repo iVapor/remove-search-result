@@ -19,6 +19,8 @@ import _ from "lodash"
 import { log, refreshPage } from "../../utils/tools"
 import { getBlockList, setBlockList } from "../../static/resource/blockList";
 
+const { Option } = Select
+
 class BlockSite extends Component {
     constructor(props) {
         super(props);
@@ -26,11 +28,13 @@ class BlockSite extends Component {
             blockType: 'name',
             blockValue: '',
             currentType: 'siteName',
+            siteSuffix: '.com',
         }
 
         this.handleSubmit = this.handleSubmit.bind(this)
         this.selectMethod = this.selectMethod.bind(this)
         this.showBlockElement = this.showBlockElement.bind(this)
+        this.changeSiteSuffix = this.changeSiteSuffix.bind(this)
     }
     saveSiteName(name) {
         let format = {
@@ -58,13 +62,15 @@ class BlockSite extends Component {
     }
     saveBlock(data) {
         let { blockMethod, siteName, siteUrl } = data
+        let { siteSuffix } = this.state
+        let completeUrl = `www.${ siteUrl }${ siteSuffix }`
         let saveMethod = {
             siteName: this.saveSiteName,
             siteUrl: this.saveSiteUrl,
         }
         let param = {
             siteName: siteName,
-            siteUrl: siteUrl,
+            siteUrl: completeUrl,
         }
         let handler = saveMethod[blockMethod]
         handler(param[blockMethod])
@@ -87,6 +93,12 @@ class BlockSite extends Component {
         })
     }
 
+    changeSiteSuffix(suffix) {
+        this.setState({
+            siteSuffix: suffix
+        })
+    }
+
     showBlockElement() {
         const { getFieldDecorator } = this.props.form
         let inputWidth200 = {
@@ -97,7 +109,7 @@ class BlockSite extends Component {
         }
 
         const selectAfter = (
-            <Select defaultValue=".com" style={{ width: 80 }}>
+            <Select defaultValue=".com" style={{ width: 80 }} onChange={ this.changeSiteSuffix }>
                 <Option value=".com">.com</Option>
                 <Option value=".cn">.cn</Option>
                 <Option value=".jp">.jp</Option>
@@ -182,15 +194,6 @@ class BlockSite extends Component {
                     </Form.Item >
                 </Form>
             </section>
-
-            <h2>说明</h2>
-            <article className={"description"}>
-                <p>每次更新后，需要关闭弹窗，刷新页面</p>
-                <p>网站名不宜过长，注意截取关键字。例如我想移除 『CSDN技术社区』，那么在网站名的位置，应该填
-                    CSDN技术社区，而不是填写官网名称 『CSDN-专业IT技术社区』。</p>
-                <p>网址的填写网站主页的 hostname，例如我想移除关于知乎的搜索结果，网址就填 zhihu，不应该填写
-                    https://www.zhihu.com/question/366538777 之类。</p>
-            </article>
         </div>
     }
 }

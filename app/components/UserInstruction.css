@@ -1,0 +1,20 @@
+.user-instruction {
+    position: relative;
+    margin-top: 20px;
+}
+
+.user-instruction h2 {
+    border-bottom: 1px solid #ebedf0;
+}
+
+.description {
+    margin-top: 20px;
+}
+
+.description img {
+    margin: 10px;
+    height: 83px;
+    width: auto;
+    box-shadow: 0 8px 20px rgba(143, 168, 191, 0.35);
+    border-radius: 10px;
+}
