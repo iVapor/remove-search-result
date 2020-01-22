@@ -55,11 +55,12 @@ const modifyBlockItem = (item, callback) => {
         if (index === undefined) {
             return
         }
-        list[index].mark = mark
-        log('in modifyBlockItem', list)
+        let site = list[index]
+        Object.assign(site, item)
         let l = JSON.stringify(list)
         chrome.storage.local.set({blockList: l}, callback)
     })
 }
+
 
 export { getBlockList, setBlockList, deleteBlockItem, modifyBlockItem }

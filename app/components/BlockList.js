@@ -11,7 +11,12 @@ import {
 } from 'antd';
 import _ from "lodash"
 import { log, refreshPage } from "../../utils/tools"
-import { getBlockList, setBlockList, deleteBlockItem, modifyBlockItem } from "../../static/resource/blockList";
+import {
+    getBlockList,
+    setBlockList,
+    deleteBlockItem,
+    modifyBlockItem,
+} from "../../static/resource/blockList";
 
 class BlockList extends Component {
     constructor(props) {
@@ -59,6 +64,17 @@ class BlockList extends Component {
             refreshPage()
         })
     }
+    changeStatus(id, status) {
+        let updateStatus = status === 1 ? 0 : 1
+        let info = {
+            id: id,
+            status: updateStatus,
+        }
+        modifyBlockItem(info, () => {
+            message.success('状态更新成功')
+            refreshPage()
+        })
+    }
     modifyRecord() {
         let { modifyRecord } = this.state
         log('modifyRecord', modifyRecord)
@@ -81,7 +97,6 @@ class BlockList extends Component {
         })
     }
     handleCancel() {
-        log('handleCancel')
         let { modifyRecord } = this.state
         Object.assign(modifyRecord, {
             id: '',
@@ -97,7 +112,6 @@ class BlockList extends Component {
     }
     changeModalData(e) {
         let value = e.target.value
-        log('value', value)
         let { modifyRecord } = this.state
         modifyRecord.mark = value
         this.setState({
@@ -111,6 +125,18 @@ class BlockList extends Component {
                 dataIndex: 'mark',
                 key: 'mark',
                 render: text => <a>{text}</a>,
+            },
+            {
+                title: '状态',
+                dataIndex: 'status',
+                key: 'status',
+                render: status => {
+                    let statusClass = status === 1 ? 'available' : 'disable'
+                    let text = status === 1 ? '已启用' : '已禁用'
+                    return <span>
+                        <span className={'status-icon '+ statusClass}></span>{ text }
+                    </span>
+                },
             },
             {
                 title: '移除方式',
@@ -134,7 +160,10 @@ class BlockList extends Component {
                 title: '操作',
                 key: 'action',
                 render: (record) => {
+                    let statueText = record.status === 1 ? '禁用' : '启用'
                     return (<span>
+                        <a onClick={() => this.changeStatus(record.id, record.status)}>{ statueText }</a>
+                        <Divider type="vertical" />
                         <a onClick={() => this.openModifyModal(record.id, record.type, record.mark)}>编辑</a>
                         <Divider type="vertical" />
                         <a onClick={() => this.deleteRecord(record.id)}>删除</a>

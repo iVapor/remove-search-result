@@ -37,6 +37,7 @@ class BlockSite extends Component {
             type: 'name',
             className: 'nor-src-wrap',
             mark: name,
+            status: 1,
         }
         setBlockList(format, () => {
             message.success('保存成功！')
@@ -48,6 +49,7 @@ class BlockSite extends Component {
             type: 'url',
             className: 'nor-src-wrap',
             mark: url,
+            status: 1,
         }
         setBlockList(format, () => {
             message.success('保存成功!')

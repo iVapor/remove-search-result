@@ -11,3 +11,21 @@
 .modify-label {
     margin-right: 10px;
 }
+
+.status-icon {
+    display: inline-block;
+    margin-right: 6px;
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+}
+
+.disable {
+    background: rgba(154, 168, 184, 1);
+}
+
+.available {
+    background: rgba(109, 210, 48, 1);
+
+}
