@@ -1,9 +1,9 @@
 {
     "manifest_version": 2,
-    "name": "Remove Search Result",
-    "short_name": "Remove Search Result",
+    "name": "移除搜索结果",
+    "short_name": "移除搜索结果下的指定网站信息",
     "version": "1.0.0",
-    "description": "It's chrome extension which can remove baidu's search result of some site",
+    "description": "输入网站名或链接，关于该网站的搜索结果就不会在搜索引擎下显示，当前只支持百度。",
     "icons": {
         "16": "icons/icon.png",
         "48": "icons/icon.png",
