@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "dev": "webpack --mode development --NODE_ENV=development --config webpack.config.js --watch"
+    "dev": "webpack --mode development --NODE_ENV=development --config webpack.config.js --watch",
+    "build": "webpack --mode production --NODE_ENV=production --config production.config.js"
   },
   "dependencies": {
     "antd": "^3.26.7",
