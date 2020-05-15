@@ -1,9 +1,11 @@
-# block-search-result
+# remove-search-result
  ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
  ![npm version](https://img.shields.io/npm/v/react.svg?style=flat)
 
 It's chrome extension which can remove [Baidu](https://www.baidu.com/)'s 
-search results of specific site. It's easy to use. Just input site name or url, it will do the rest things.
+search results of specific site. It's easy to use. Just input site name or
+ url, it will do the rest things. 
+ [![](./project/chrome_web_store_icon_48px.png)](https://chrome.google.com/webstore/detail/%E7%A7%BB%E9%99%A4%E6%90%9C%E7%B4%A2%E7%BB%93%E6%9E%9C/ddmhkakmaioldjigppjffdoaahheegch?hl=zh-CN)
 
 * Of course, you can add any website to block. But, it won't remove the official website at first place.
 * It works both site name and url.

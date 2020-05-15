@@ -1,9 +1,10 @@
-# block-search-result
+# remove-search-result
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
  ![npm version](https://img.shields.io/npm/v/react.svg?style=flat)
  
 这是一款可以移除[百度](https://www.baidu.com/)搜索结果的浏览器扩展。
 只需要打开弹窗，输入网站名或链接即可。如果你喜欢，欢迎给我提 issue！
+ [![](./project/chrome_web_store_icon_48px.png)](https://chrome.google.com/webstore/detail/%E7%A7%BB%E9%99%A4%E6%90%9C%E7%B4%A2%E7%BB%93%E6%9E%9C/ddmhkakmaioldjigppjffdoaahheegch?hl=zh-CN)
 
 * 可以选择屏蔽大部分网站，但是，不会屏蔽搜索结果首位的官网。也许有一天，您真的想访问这个网站。
 * 支持按照网站名屏蔽或者按照链接屏蔽。
