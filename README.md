@@ -44,6 +44,8 @@ You also can create you own Chrome extension by fork this project.
 5. Click 'Load unpacked' button. Paste in explore window. 
 When you see the extension icon in your Chrome, it means the extension had built successfully.
 
+# Warning
+Chrome Extension V3 is stupid. I'm not going to upgrade.
 
 # README.md
 * zh_CN [简体中文](README_zh_CN.md) 👈
