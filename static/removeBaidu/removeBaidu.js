@@ -1,5 +1,5 @@
 import {getBlockList} from "../resource/blockList";
-import {selectAllElement, selectElement} from "../../utils/tools";
+import {selectAllElement, selectElement, log } from "../../utils/tools";
 import _ from "lodash";
 
 const removeUrl = (rowAnchor, callback) => {
@@ -24,12 +24,14 @@ const removeSiteName = (rowFooter, callback) => {
     p.then((list) => {
         list.forEach((value, index, array) => {
             let type = value.type
-            let canRemove = (type === 'name') && (value.status === 1)
+            let canRemove = value.status === 1
             if (canRemove) {
                 let identifyClass = '.nor-src-wrap'
                 let targetElement = rowFooter.querySelector(identifyClass)
-                let text = targetElement.innerText
+                let text = rowFooter.innerText
+                log('text', text)
                 flag = text.includes(value.mark)
+                log('flag', flag)
                 callback(flag)
             }
         })
@@ -49,7 +51,12 @@ const isTargetElement = (element, callback) => {
     // 处理链接
     let identifyClass = '.c-showurl'
     let targetElement = lastChildFooter.querySelector(identifyClass)
+    if (!targetElement) {
+        return
+    }
+    log('targetElement', targetElement)
     let isUrl = targetElement.children.length === 0
+    log('isUrl', isUrl)
     if (isUrl) {
         removeUrl(targetElement, callback)
     } else {

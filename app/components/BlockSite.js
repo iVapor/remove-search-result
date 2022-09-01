@@ -70,7 +70,7 @@ class BlockSite extends Component {
         }
         let param = {
             siteName: siteName,
-            siteUrl: completeUrl,
+            siteUrl: siteUrl,
         }
         let handler = saveMethod[blockMethod]
         handler(param[blockMethod])
@@ -187,7 +187,7 @@ class BlockSite extends Component {
                     { blockTypeElement }
 
                     <Form.Item wrapperCol={{ span: 12, offset: 6 }}
-                        help={tips}>
+                               help={tips}>
                         <Button type="primary" htmlType="submit">
                             提交
                         </Button>
