@@ -1,11 +1,15 @@
 {
   "scripts": {
     "dev": "webpack --mode development --NODE_ENV=development --config webpack.config.js --watch",
-    "build": "webpack --mode production --NODE_ENV=production --config production.config.js"
+    "build": "webpack --mode production --NODE_ENV=production --config production.config.js",
+    "hotReload": "npm run watch:dist && npm run watch:src",
+    "watch:src": "webpack --config webpack/webpack.dev.js --watch",
+    "watch:dist": "mv3-hot-reload"
   },
   "dependencies": {
     "antd": "^3.26.7",
     "lodash": "^4.17.15",
+    "mv3-hot-reload": "^0.2.7",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },

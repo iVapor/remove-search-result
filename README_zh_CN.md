@@ -28,11 +28,13 @@
 
 1. 安装依赖运行 `npm install`. 
 
-2. 创建扩展包运行 `npm run dev`。复制项目的文件目录。
+2. 运行 `npm run hotReload` 让组件支持热加载。
 
-3. 在浏览器输入链接 `chrome://extensions/` ，扩展控制页面。
+3. 创建扩展包运行 `npm run dev`。复制项目的文件目录。
 
-4. 选择「加载已解压的扩展程序」，黏贴文件目录，选择 build。浏览器出现扩展图标，说明 build 成功了。
+4. 在浏览器输入链接 `chrome://extensions/` ，扩展控制页面。
+
+5. 选择「加载已解压的扩展程序」，黏贴文件目录，选择 build。浏览器出现扩展图标，说明 build 成功了。
 
 # README.md
 * zh_CN [简体中文](README_zh_CN.md) 👈

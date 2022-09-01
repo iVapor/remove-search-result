@@ -123,7 +123,7 @@ class BlockSite extends Component {
             {getFieldDecorator('siteName', {
                 rules: [
                     {
-                        required: currentType === 'siteName',
+                        // required: currentType === 'siteName',
                         message: '请输入网站名！',
                     },
                 ],
@@ -134,7 +134,7 @@ class BlockSite extends Component {
             {getFieldDecorator('siteUrl', {
                 rules: [
                     {
-                        required: currentType === 'siteUrl',
+                        // required: currentType === 'siteUrl',
                         message: '请输入网址！',
                     },
                 ],
@@ -172,7 +172,7 @@ class BlockSite extends Component {
                         {getFieldDecorator('blockMethod',  {
                             rules: [
                                 {
-                                    required: true,
+                                    // required: true,
                                     message: '请选择移除方式！',
                                 },
                             ],

@@ -14,7 +14,7 @@ search results of specific site. It's easy to use. Just input site name or
 
 # Tech
 * Use [React](https://reactjs.org) and [Webpack](https://webpack.js.org/) in Popup page. 
-* Support hot reload. 
+* Support hot reload [by mv3-hot-reload](https://github.com/pacexy/mv3-hot-reload)
 * A better UI with [Ant Design](https://ant.design).
 
 The Baidu's users are mostly Chinese. So, our current UI is Chinese. 
@@ -35,11 +35,13 @@ You also can create you own Chrome extension by fork this project.
 
 1. Install all the required packages/dependencies using npm `npm install`. 
 
-2. Build extension files `npm run dev`. Copy project directory.
+2. Run `npm run hotReload` to hot reload extension.
 
-3. Enter url `chrome://extensions/` in your Chrome.
+3. Build extension files `npm run dev`. Copy project directory.
 
-4. Click 'Load unpacked' button. Paste in explore window. 
+4. Enter url `chrome://extensions/` in your Chrome.
+
+5. Click 'Load unpacked' button. Paste in explore window. 
 When you see the extension icon in your Chrome, it means the extension had built successfully.
 
 

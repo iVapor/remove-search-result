@@ -4,13 +4,24 @@ const CopyPlugin = require("copy-webpack-plugin");
 const baseManifest = require("./chrome/manifest.json");
 const WebpackExtensionManifestPlugin = require("webpack-extension-manifest-plugin");
 
+const isDev = process.env.NODE_ENV === 'development'
+
+function getEntry(name) {
+    return [path.join(__dirname, './static', name), ...(isDev ? [`mv3-hot-reload/${name}`] : [])]
+}
+
 const config = {
     mode: "development",
     devtool: "cheap-module-source-map",
     entry: {
-        app: path.join(__dirname, "./static/index.js"),
-        hotReload: path.join(__dirname, "./static/hotReload.js"),
-        contentScript: path.join(__dirname, "./static/contentScript.js"),
+        // app: path.join(__dirname, "./static/index.js"),
+        // // hotReload: path.join(__dirname, "./static/hotReload.js"),
+        // // background: path.join(__dirname, './static'),
+        // contentScript: path.join(__dirname, "./static/contentScript.js"),
+
+        app: getEntry('index.js'),
+        // hotReload: path.join(__dirname, "./static/hotReload.js"),
+        contentScript: getEntry('contentScript.js'),
     },
 
     output: {
