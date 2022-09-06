@@ -1,24 +1,7 @@
-import _ from 'lodash'
-import { log, selectAllElement, selectElement } from "../utils/tools"
-import { getBlockList } from "./resource/blockList";
-// content.ts
-import 'mv3-hot-reload/content'
-
-// your code...
-import { removeBaiduElement } from "./removeBaidu/removeBaidu"
-
-const testHotReload = () => {
-}
-
-const test = () => {
-    testHotReload()
-}
-
-
-
-const __main = () => {
-    removeBaiduElement()
-    test()
-}
-
-__main()
+var s = document.createElement('script');
+s.src = chrome.runtime.getURL('script.js');
+s.onload = function() {
+    console.log('in content')
+    this.remove();
+};
+(document.head || document.documentElement).appendChild(s);

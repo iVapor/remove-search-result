@@ -21,7 +21,8 @@ const config = {
 
         app: getEntry('index.js'),
         // hotReload: path.join(__dirname, "./static/hotReload.js"),
-        contentScript: getEntry('contentScript.js'),
+
+        // script: getEntry('script.js'),
     },
 
     output: {
@@ -43,14 +44,23 @@ const config = {
             manifest: "manifest.json",
             filename: "index.html",
             template: "./static/index.html",
-            hash: true
+            hash: true,
+
         }),
 
         new CopyPlugin([
             {
                 from: "chrome/icons",
                 to: "icons"
-            }
+            },
+            {
+                from: "static/script.js",
+                to: "script.js"
+            },
+            {
+                from: "static/contentScript.js",
+                to: "contentScript.js"
+            },
         ]),
         new WebpackExtensionManifestPlugin({
             config: {
