@@ -14,12 +14,19 @@ const test = () => {
     testHotReload()
 }
 
-
+const judeEnv = () => {
+    let root = document.querySelector('#root')
+    if (root) {
+        return
+    }
+}
 
 const __main = () => {
-    console.log('in main')
+    judeEnv()
+    console.log('chrome', chrome.storage.local)
     removeBaiduElement()
     test()
 }
+
 
 __main()

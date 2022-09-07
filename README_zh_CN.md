@@ -36,6 +36,9 @@
 
 5. 选择「加载已解压的扩展程序」，黏贴文件目录，选择 build。浏览器出现扩展图标，说明 build 成功了。
 
+## 开发手册
+1. 开发过程中，修改代码后，刷新具体页面。
+
 # README.md
 * zh_CN [简体中文](README_zh_CN.md) 👈
 * [English](README.md) 👈
