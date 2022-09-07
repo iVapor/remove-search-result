@@ -39,6 +39,9 @@
 ## 开发手册
 1. 开发过程中，修改代码后，刷新具体页面。
 
+# 警告
+不支持 chrome extension v3.
+
 # README.md
 * zh_CN [简体中文](README_zh_CN.md) 👈
 * [English](README.md) 👈
